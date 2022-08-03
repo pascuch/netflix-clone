@@ -23,7 +23,7 @@ function Row({ title, fetchURL, isLargeRow = false }) {
                 ((isLargeRow && e.poster_path) || 
                 (!isLargeRow && e.backdrop_path)) && ( 
                 <img 
-                    className={`max-h-${isLargeRow ? '64' : '28'} object-contain mr-3 w-full duration-500 hover:scale-${isLargeRow ? '110' : '[1.08]'} hover:opacity-100`}
+                    className={`${isLargeRow ? 'max-h-64' : 'max-h-28'} object-contain mr-3 w-full duration-500 ${isLargeRow ? 'hover:scale-110' : 'hover:scale-[1.08]'} hover:opacity-100`}
                     key={e.id}
                     src={`${baseURL}${isLargeRow ? e.poster_path : e.backdrop_path}`}
                     alt={e.name}
