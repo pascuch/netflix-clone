@@ -16,17 +16,17 @@ function NavBar() {
     }, [])
 
   return (
-    <div className={`fixed top-0 p-[20px] w-full h-[35px] z-10 ${show && 'bg-black'} duration-700`}>
-        <div className="flex justify-between">
+    <div className={`fixed top-0 p-[20px] w-full h-12 z-10 ${show && 'bg-black'} duration-700`}>
+        <div className="flex w-full h-full justify-between items-center">
             <img 
                 onClick={() => navigate({ pathname: '/' })}
-                className="fixed left-0 top-[10px] w-[100px] pl-[20px] cursor-pointer object-contain"
+                className="fixed left-3 w-[100px] cursor-pointer object-contain"
                 src='https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png'
                 alt='logo' 
             />
             <img 
                 onClick={() => navigate({ pathname: '/profile' })}
-                className="fixed top-[5px] right-[20px] w-[30px] cursor-pointer"
+                className="fixed right-3 w-[30px] cursor-pointer"
                 src='https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png'
                 alt='profile'
             />

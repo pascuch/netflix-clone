@@ -13,7 +13,6 @@ function Banner() {
             )
             return request
         };
-        
         fetchData()
     }, [])
 
@@ -30,15 +29,15 @@ function Banner() {
             backgroundPosition: 'center top',
         }}
     >
-        <div className="ml-[30px] pt-[140px] h-[250px]">
-            <h1 className="text-5xl font-extrabold pb-1">
+        <div className="absolute bottom-0 mb-44  ml-[30px] md:ml-20 pt-[140px] h-[250px]">
+            <h1 className="text-4xl md:text-5xl font-extrabold pb-1">
                 {movie?.title || movie?.name || movie?.original_name}
             </h1>
             <div className="mt-2">
                 <button className="font-bold rounded px-8 mr-4 bg-btn py-2 hover:text-black hover:bg-[#e6e6e6] duration-200 ">Play</button>
                 <button className="font-bold rounded px-8 mr-4 bg-btn py-2 hover:text-black hover:bg-[#e6e6e6] duration-200 ">My List</button>
             </div>
-            <h1 className="w-[45rem] leading-5 pt-4 text-sm font-bold max-w-sm h-20">{truncate(movie?.overview, 150)}</h1>
+            <h1 className="leading-5 pr-4 pt-4 text-sm md:text-base font-bold max-w-sm h-20">{truncate(movie?.overview, 150)}</h1>
         </div>
         <div className="absolute bottom-0 h-32 w-full bg-gradient-to-b from-transparent to-black"/>
     </header>

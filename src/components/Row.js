@@ -16,8 +16,8 @@ function Row({ title, fetchURL, isLargeRow = false }) {
     }, [fetchURL])
 
   return (
-    <div className="ml-5 mt-5">
-        <h2 className="text-white text-2xl font-bold">{title}</h2>
+    <div className="mt-5">
+        <h2 className="text-white text-2xl font-bold ml-5">{title}</h2>
         <div className="flex overflow-y-hidden overflow-x-scroll p-5 scrollbar-hide">
             {movies?.map(e => (
                 ((isLargeRow && e.poster_path) || 

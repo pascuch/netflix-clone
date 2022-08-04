@@ -28,18 +28,18 @@ function Login() {
                 <button onClick={handleClick} className="fixed right-5 top-5 py-2 px-5 text-white text-lg bg-[#e50914] hover:bg-[#e3222c] font-bold cursor-pointer">Sign In</button>
                 <div className=" bottom-0 h-screen w-full bg-gradient-to-t from-transparent to-loginfade"/>
             </div>
-            <div className={`absolute text-center inset-0 ${signIn ? 'top-1/4' : 'top-1/3'}  mx-auto`}>
+            <div className={`absolute text-center inset-0 ${signIn ? 'top-[20%] md:top-1/4' : 'top-[20%] md:top-1/3'} px-2 mx-auto`}>
             {signIn ? (
                 <SignUp /> )
                 : (
                 <div>
-                    <h1 className="text-5xl font-bold p-5">Unlimited films, TV programms and more.</h1>
+                    <h1 className="text-4xl md:text-5xl font-bold p-5">Unlimited films, TV programms and more.</h1>
                     <h2 className="text-3xl font-normal pb-3">Watch anywhere. Cancel at any time.</h2>
                     <h3 className="text-lg font-normal">Ready to watch? Enter your email to create or restart your membership.</h3>
                     <div>
-                        <form className="flex justify-center p-5">
+                        <form className="flex flex-col md:flex-row justify-center p-5">
                             <input 
-                                className="p-2.5 outline-none text-black h-10 w-1/3"
+                                className="p-2.5 outline-none text-black h-10 w-full md:w-1/3 hidden md:inline-block"
                                 type='email'
                                 placeholder="Email Address"
                             />
