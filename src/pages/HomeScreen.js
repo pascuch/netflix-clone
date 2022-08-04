@@ -1,11 +1,11 @@
-import Banner from "./components/Banner"
-import NavBar from "./components/NavBar"
-import Row from "./components/Row"
-import requests from "./Requests"
+import Banner from "../components/Banner"
+import NavBar from "../components/NavBar"
+import Row from "../components/Row"
+import requests from "../Requests"
 
 function HomeScreen() {
   return (
-    <div>
+    <div className="pb-8 w-full">
         <NavBar />
         <Banner />
         <Row 
