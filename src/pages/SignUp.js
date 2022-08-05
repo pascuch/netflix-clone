@@ -1,12 +1,9 @@
 import { useRef } from "react"
-import { useDispatch } from "react-redux";
 import { auth } from '../firebase'
 import { signInWithPopup, FacebookAuthProvider} from 'firebase/auth'
 import facebook_logo from '../assests/images/facebook-logo.png'
 
 function SignUp() {
-    const dispatch = useDispatch()
-
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
 

@@ -1,5 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchCount } from './counter/counterAPI';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   user: null,
