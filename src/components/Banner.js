@@ -7,14 +7,19 @@ function Banner() {
     const [movie, setMovie] = useState([])
 
     useEffect(() => {
-        async function fetchData() {
-            const request = await axios.get(requests.fetchNetflixOriginals);
-            setMovie(
-                request.data.results[Math.floor(Math.random() * request.data.results.length - 1)]
-            )
-            return request
-        };
-        fetchData()
+        try {
+            async function fetchData() {
+                const request = await axios.get(requests.fetchNetflixOriginals);
+                setMovie(
+                    request.data.results[Math.floor(Math.random() * request.data.results.length - 1)]
+                )
+                return request
+            };
+            fetchData()
+            
+        } catch (error) {
+            console.log(error.message)
+        }
     }, [])
 
     const truncate = (string, n) => {
@@ -24,9 +29,9 @@ function Banner() {
   return (
     <header
         className="relative h-[500px] object-contain text-white"
-        style={{
+        style={movie.backdrop_path && {
             backgroundSize: 'cover',
-            backgroundImage: `url('https://image.tmdb.org/t/p/original${movie?.backdrop_path}')`,
+            backgroundImage: `url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`,
             backgroundPosition: 'center top',
         }}
     >

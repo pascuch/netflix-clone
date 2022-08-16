@@ -8,7 +8,7 @@ function HomeScreen() {
     <div className="pb-8 w-full">
         <NavBar />
         <Banner />
-        <div className="">
+        <main className="">
             <Row 
                 title='NETFLIX ORIGINALS'
                 fetchURL={requests.fetchNetflixOriginals}
@@ -42,7 +42,7 @@ function HomeScreen() {
                 title='Documentaries'
                 fetchURL={requests.fetchDocumentaries}
             />
-        </div>
+        </main>
     </div>
   )
 }
