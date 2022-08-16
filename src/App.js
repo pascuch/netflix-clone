@@ -5,11 +5,12 @@ import {
   Route,
 } from "react-router-dom";
 import HomeScreen from './pages/HomeScreen';
-import Login from "./pages/Login";
+import LandingPage from "./pages/LandingPage";
 import { auth } from './firebase'
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from './features/userSlice'
 import Profile from "./pages/Profile";
+import SignIn from "./pages/SignIn";
 
 function App() {
   const user = useSelector(selectUser)
@@ -34,8 +35,10 @@ function App() {
     <div className="bg-black">
       <BrowserRouter>
           <Routes>
+            <Route path="/" element={<LandingPage /> } />
+            <Route path="/home" element={<HomeScreen /> } />            
+            <Route path="/signin" element={<SignIn /> } />            
             <Route path='/profile' element={<Profile />} />
-            <Route path="/" element={!user ? <Login /> : <HomeScreen />} />
           </Routes>
       </BrowserRouter>
     </div>
