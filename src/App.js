@@ -8,7 +8,7 @@ import HomeScreen from './pages/HomeScreen';
 import LandingPage from "./pages/LandingPage";
 import { auth } from './firebase'
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout, selectUser } from './features/userSlice'
+import { login, logout, selectUser } from './redux/userSlice'
 import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
 

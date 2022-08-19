@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Plans from "../components/Plans";
-import { selectUser } from "../features/userSlice";
+import { selectUser } from "../redux/userSlice";
 import { auth } from "../firebase";
 import SignUp from "./SignUp";
 

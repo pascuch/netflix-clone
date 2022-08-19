@@ -28,14 +28,14 @@ function Banner() {
 
   return (
     <header
-        className="relative h-[500px] object-contain text-white"
-        style={movie.backdrop_path && {
+        className="relative h-[700px] object-contain text-white"
+        style={movie?.backdrop_path && {
             backgroundSize: 'cover',
             backgroundImage: `url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`,
             backgroundPosition: 'center top',
         }}
     >
-        <div className="absolute bottom-0 mb-44  ml-[30px] md:ml-20 pt-[140px] h-[250px]">
+        <div className="absolute bottom-0 mb-44  ml-[30px] md:ml-20 pt-[100px] h-[250px]">
             <h1 className="text-4xl md:text-5xl font-extrabold pb-1">
                 {movie?.title || movie?.name || movie?.original_name}
             </h1>          
