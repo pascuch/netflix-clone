@@ -37,8 +37,8 @@ const showRows = () => {
         isLargeRow
         delay={0}
       />
-      <Row title="Trending Now" fetchURL={requests.fetchTrending} delay={1}/>
-      <Row title="Top Rated" fetchURL={requests.fetchTopRated} delay={2}/>
+      <Row title="Trending Now" fetchURL={requests.fetchTrending} delay={0.5}/>
+      <Row title="Top Rated" fetchURL={requests.fetchTopRated} delay={1}/>
       {show && genres?.map((e, i) => {
         if (i < 20)
           return (
@@ -46,7 +46,7 @@ const showRows = () => {
               key={e.id}
               title={e.name}
               fetchURL={`${requests.fetchMoviesByGenre}${e.id}`}
-              delay={i + 3}
+              delay={1 + (i + 1) * 0.5}
             />
           );
       })}

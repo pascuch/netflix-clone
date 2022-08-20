@@ -24,9 +24,7 @@ function Row({ title, fetchURL, isLargeRow = false, delay }) {
         console.log(error.message);
       }
     }, 1000 * delay);
-
-    // timer();
-
+    
     return () => clearTimeout(timer);
   }, [fetchURL]);
 
