@@ -37,8 +37,8 @@ const showRows = () => {
         isLargeRow
         delay={0}
       />
-      <Row title="Trending Now" fetchURL={requests.fetchTrending} delay={0}/>
-      <Row title="Top Rated" fetchURL={requests.fetchTopRated} delay={0}/>
+      <Row title="Trending Now" fetchURL={requests.fetchTrending} delay={0.5}/>
+      <Row title="Top Rated" fetchURL={requests.fetchTopRated} delay={1}/>
       {show && genres?.map((e, i) => {
         if (i < 20)
           return (
