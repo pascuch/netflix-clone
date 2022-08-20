@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SignUp from "./SignUp";
+import Logo from '../assests/images/netflix-logo.png'
+import Background from '../assests/images/netflix-background.jpg'
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ function LandingPage() {
       className="relative h-screen object-cover text-white"
       style={{
         backgroundSize: "cover",
-        backgroundImage: `url('https://isquad.tv/wp-content/uploads/2018/08/Netflix-Background.jpg')`,
+        backgroundImage: `url('${Background}')`,
         backgroundPosition: "center center",
       }}
     >
@@ -24,7 +26,7 @@ function LandingPage() {
         <div>
           <img
             className="fixed left-0 w-40 object-contain pl-5"
-            src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"
+            src={Logo}
             alt="logo"
           />
           <button
