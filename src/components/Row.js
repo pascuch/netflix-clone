@@ -12,7 +12,6 @@ function Row({ title, fetchURL, isLargeRow = false, delay }) {
   const baseURL = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
-    const timer = setTimeout(() => {
       try {
         async function fetchData() {
           const request = await axios.get(fetchURL);
@@ -23,9 +22,10 @@ function Row({ title, fetchURL, isLargeRow = false, delay }) {
       } catch (error) {
         console.log(error.message);
       }
-    }, 1000 * delay);
+    // const timer = setTimeout(() => {
+    // }, 1000 * delay);
     
-    return () => clearTimeout(timer);
+    // return () => clearTimeout(timer);
   }, [fetchURL]);
 
   const handleClick = (id) => {
