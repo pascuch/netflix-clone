@@ -35,9 +35,10 @@ const showRows = () => {
         title="NETFLIX ORIGINALS"
         fetchURL={requests.fetchNetflixOriginals}
         isLargeRow
+        delay={0}
       />
-      <Row title="Trending Now" fetchURL={requests.fetchTrending} />
-      <Row title="Top Rated" fetchURL={requests.fetchTopRated} />
+      <Row title="Trending Now" fetchURL={requests.fetchTrending} delay={1}/>
+      <Row title="Top Rated" fetchURL={requests.fetchTopRated} delay={2}/>
       {show && genres?.map((e, i) => {
         if (i < 20)
           return (
@@ -45,6 +46,7 @@ const showRows = () => {
               key={e.id}
               title={e.name}
               fetchURL={`${requests.fetchMoviesByGenre}${e.id}`}
+              delay={i + 3}
             />
           );
       })}

@@ -4,7 +4,7 @@ function MainDetails({ details }) {
   return (
     <main className="flex gap-x-20 mt-2">
       <div className="w-2/3">
-        <div className="flex mb-8 gap-x-5 ">
+        <div className="flex mb-8 gap-x-4 ">
           <div className="flex items-center text-yellow-200">
             <h3 className="font-bold mr-1">IMDB</h3>
             <h3 className="">{Math.round(details.vote_average * 10) / 10}</h3>

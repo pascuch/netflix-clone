@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchMovieDetails, changePositionY } from "../redux/movieDetailsSlice";
 import axios from "../axios";
 
-function Row({ title, fetchURL, isLargeRow = false }) {
+function Row({ title, fetchURL, isLargeRow = false, delay }) {
   const dispatch = useDispatch();
 
   const [movies, setMovies] = useState([]);
@@ -12,22 +12,27 @@ function Row({ title, fetchURL, isLargeRow = false }) {
   const baseURL = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
-    try {
-      async function fetchData() {
-        const request = await axios.get(fetchURL);
-        setMovies(request.data.results);
-        return request;
+    const timer = setTimeout(() => {
+      try {
+        async function fetchData() {
+          const request = await axios.get(fetchURL);
+          setMovies(request.data.results);
+          return request;
+        }
+        fetchData();
+      } catch (error) {
+        console.log(error.message);
       }
-      fetchData();
-    } catch (error) {
-      console.log(error.message);
-    }
+    }, 1000 * delay);
+
+    // timer();
+
+    return () => clearTimeout(timer);
   }, [fetchURL]);
 
   const handleClick = (id) => {
-    dispatch(fetchMovieDetails(id))
-    dispatch(changePositionY(window.scrollY))
-
+    dispatch(fetchMovieDetails(id));
+    dispatch(changePositionY(window.scrollY));
   };
 
   return (

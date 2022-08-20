@@ -28,7 +28,6 @@ function MovieDetail() {
     dispatch(changePlayer(false));
   };
 
-  // console.log('VIDEO: ', details.videos.results.find(e => e.name.toLowerCase() === "official trailer").key)
   console.log(details)
 
   return (
@@ -48,7 +47,7 @@ function MovieDetail() {
                   }}
                   width="100%"
                   height="100%"
-                  url={`https://www.youtube.com/watch?v=${details.videos.results.find(e => e.name.toLowerCase() === "official trailer" || e.name.toLowerCase() === "trailer")?.key}`}
+                  url={`https://www.youtube.com/watch?v=${details.videos.results.find(e => e.name.toLowerCase().includes("official trailer") || e.name.toLowerCase().includes("trailer"))?.key}`}
                 />
               </div>
               <div onClick={handleClosePlayer} className="fixed inset-0 w-screen h-screen -z-10" />
