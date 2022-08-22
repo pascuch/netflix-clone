@@ -1,17 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import React from "react";
 
 function MainDetails({ details }) {
-  const navigate = useNavigate()
-
-  const handleGenreClick = (id) => {
-    navigate(`/home?genre=${id}`)
-  }
-
-  const handlePersonClick = (id) => {
-    console.log('ID: ', id)
-    navigate(`/home?person=${id}`)
-  }
-
   return (
     <main className="flex gap-x-20 mt-2">
       <div className="w-2/3">
@@ -34,7 +23,7 @@ function MainDetails({ details }) {
             <a href="." className="text-gray-500 cursor-default">
               Director:{" "}
             </a>
-            <span onClick={() => handlePersonClick(details.credits.crew?.find((e) => e.job === "Director")?.id)} className="cursor-pointer hover:underline">
+            <span className="cursor-pointer hover:underline">
               {details.credits.crew?.find((e) => e.job === "Director")?.name}
             </span>
           </p>
@@ -48,7 +37,7 @@ function MainDetails({ details }) {
             {details.credits.cast?.map((e, i) => {
               if (i < 3) {
                 return (
-                  <span onClick={() => handlePersonClick(e.id)} key={e.name} className="cursor-pointer hover:underline">
+                  <span key={e.name} className="cursor-pointer hover:underline">
                     {e.name},{" "}
                   </span>
                 );
@@ -71,13 +60,13 @@ function MainDetails({ details }) {
             {details.genres?.map((e, i) => {
               if (i === details.genres.length - 1) {
                 return (
-                  <span onClick={() => handleGenreClick(e.id)} key={e.name} className="cursor-pointer hover:underline">
+                  <span key={e.name} className="cursor-pointer hover:underline">
                     {e.name}
                   </span>
                 );
               } else {
                 return (
-                  <span onClick={() => handleGenreClick(e.id)} key={e.name} className="cursor-pointer hover:underline">
+                  <span key={e.name} className="cursor-pointer hover:underline">
                     {e.name},{" "}
                   </span>
                 );

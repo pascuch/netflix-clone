@@ -1,16 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import React from "react";
 
 function AboutDetails({ details }) {
-  const navigate = useNavigate()
-
-  const handleGenreClick = (id) => {
-    navigate(`/home?genre=${id}`)
-  }
-
-  const handlePersonClick = (id) => {
-    navigate(`/home?person=${id}`)
-  }
-
   return (
     <div className="my-8">
       <div className="flex text-3xl mb-8">
@@ -23,7 +13,7 @@ function AboutDetails({ details }) {
             <a href="." className="text-gray-500 cursor-default">
               Director:{" "}
             </a>
-            <span onClick={() => handlePersonClick(details.credits.crew?.find((e) => e.job === "Director")?.id)} className="cursor-pointer hover:underline">
+            <span className="cursor-pointer hover:underline">
               {details.credits.crew?.find((e) => e.job === "Director")?.name}
             </span>
           </p>
@@ -34,14 +24,14 @@ function AboutDetails({ details }) {
               Cast:{" "}
             </a>
             {details.credits.cast?.map((e, i) => {
-              if (i === 50 || i === details.credits.cast.length - 1) {
+              if (i < 15) {
                 return (
-                  <span onClick={() => handlePersonClick(e.id)} key={e.name} className="cursor-pointer hover:underline">{e.name}</span>
+                  <span key={e.name} className="cursor-pointer hover:underline">{e.name}, </span>
                 );
               }
-              if (i < 50) {
+              if (i === 15) {
                 return (
-                  <span onClick={() => handlePersonClick(e.id)} key={e.name} className="cursor-pointer hover:underline">{e.name}, </span>
+                  <span key={e.name} className="cursor-pointer hover:underline">{e.name}</span>
                 );
               }
             })}
@@ -67,11 +57,11 @@ function AboutDetails({ details }) {
             {details.genres?.map((e, i) => {
               if (i === details.genres.length - 1) {
                 return (
-                  <span onClick={() => handleGenreClick(e.id)} key={e.name} className="cursor-pointer hover:underline">{e.name}</span>
+                  <span key={e.name} className="cursor-pointer hover:underline">{e.name}</span>
                 );
               } else {
                 return (
-                  <span onClick={() => handleGenreClick(e.id)} key={e.name} className="cursor-pointer hover:underline">{e.name}, </span>
+                  <span key={e.name} className="cursor-pointer hover:underline">{e.name}, </span>
                 );
               }
             })}

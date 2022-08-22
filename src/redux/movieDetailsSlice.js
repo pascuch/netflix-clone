@@ -34,6 +34,7 @@ const movieDetailsSlice = createSlice({
     },
     changePositionY: (state, action) => {
       state.positionY = action.payload;
+      state.showDetails = true;
     },
     changePlayer: (state, action) => {
       state.showPlayer = action.payload;
@@ -46,7 +47,7 @@ const movieDetailsSlice = createSlice({
       })
       .addCase(fetchMovieDetails.fulfilled, (state, action) => {
         state.status = "succeded";
-        state.details = action.payload;
+        state.details = action.payload
         state.showDetails = true;
       })
       .addCase(fetchMovieDetails.rejected, (state, action) => {
@@ -56,7 +57,8 @@ const movieDetailsSlice = createSlice({
   },
 });
 
-export const { cleanDetails, changePositionY, changePlayer } = movieDetailsSlice.actions;
+export const { cleanDetails, changePositionY, changePlayer } =
+  movieDetailsSlice.actions;
 
 export const selectMovieDetails = (state) => state.movieDetails.details;
 export const selectShowDetails = (state) => state.movieDetails.showDetails;

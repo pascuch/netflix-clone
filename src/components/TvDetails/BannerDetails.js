@@ -4,15 +4,14 @@ import { FaPlay } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-import { IoArrowBack } from "react-icons/io5";
 
 function BannerDetails({ details }) {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleClose = () => {
     dispatch(cleanDetails());
-    navigate("/home");
+    navigate('/home')
   };
 
   const handlePlay = () => {
@@ -31,29 +30,18 @@ function BannerDetails({ details }) {
         }
       }
     >
-      <div className="flex justify-between px-4 pt-4">
-        <div
-          onClick={() => navigate(-1)}
-          className=" text-white bg-gray-800 hover:bg-gray-700 text-2xl p-2 rounded-full cursor-pointer"
-        >
-          <IoArrowBack />
-        </div>
-        <div
-          onClick={handleClose}
-          className=" text-white bg-gray-800 hover:bg-gray-700 text-2xl p-2 rounded-full cursor-pointer"
-        >
-          <IoMdClose />
-        </div>
+      <div
+        onClick={handleClose}
+        className="absolute top-4 right-4 text-white bg-gray-800 hover:bg-gray-700 text-2xl p-2 rounded-full cursor-pointer"
+      >
+        <IoMdClose />
       </div>
       <div className="absolute bottom-[-70px] mb-44 ml-[30px] md:ml-10 pt-[100px] w-2/3">
         <h1 className="text-4xl md:text-5xl font-extrabold pb-1">
           {details.title}
         </h1>
         <div className="absolute flex mt-2 z-10">
-          <button
-            onClick={handlePlay}
-            className="flex items-center font-bold rounded px-6 mr-4 bg-btn py-2 hover:text-black hover:bg-[#e6e6e6] duration-200 "
-          >
+          <button onClick={handlePlay} className="flex items-center font-bold rounded px-6 mr-4 bg-btn py-2 hover:text-black hover:bg-[#e6e6e6] duration-200 ">
             <FaPlay className="mr-2" />
             <h1>Play</h1>
           </button>

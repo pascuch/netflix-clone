@@ -37,6 +37,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage /> } />
             <Route path="/home" element={<HomeScreen /> } />            
+            <Route path="/home/:type/:id" element={<HomeScreen /> } />            
             <Route path="/signin" element={<SignIn /> } />            
             <Route path='/profile' element={<Profile />} />
           </Routes>

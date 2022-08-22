@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovieDetails, changePositionY } from "../redux/movieDetailsSlice";
 import axios from "../axios";
+import { useNavigate } from "react-router-dom";
 
 function Row({ title, fetchURL, isLargeRow = false, delay }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const [movies, setMovies] = useState([]);
   const [movieId, setMovieId] = useState(null);
@@ -29,8 +31,8 @@ function Row({ title, fetchURL, isLargeRow = false, delay }) {
   }, [fetchURL]);
 
   const handleClick = (id) => {
-    dispatch(fetchMovieDetails(id));
     dispatch(changePositionY(window.scrollY));
+    navigate(`/home?movie=${id}`)
   };
 
   return (
@@ -43,13 +45,13 @@ function Row({ title, fetchURL, isLargeRow = false, delay }) {
               (!isLargeRow && e.backdrop_path)) && (
               <img
                 className={`${
-                  isLargeRow ? "max-h-64" : "max-h-32"
+                  isLargeRow ? "max-h-72" : "max-h-56"
                 } object-contain mr-3 w-full duration-500 ${
                   isLargeRow ? "hover:scale-110" : "hover:scale-[1.08]"
                 } hover:opacity-100 cursor-pointer`}
                 key={e.id}
                 src={`${baseURL}${
-                  isLargeRow ? e.poster_path : e.backdrop_path
+                  isLargeRow ? e.poster_path : e.poster_path
                 }`}
                 alt={e.name}
                 onClick={() => handleClick(e.id)}

@@ -15,32 +15,31 @@ import BannerDetails from "./BannerDetails";
 import MainDetails from "./MainDetails";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-function MovieDetail() {
+function TvDetails() {
   const dispatch = useDispatch();
   const details = useSelector(selectMovieDetails);
   const showPlayer = useSelector(selectShowPlayer);
   const status = useSelector(getMovieDetailsStatus);
   const error = useSelector(getMovieDetailsError);
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams()
 
-  const movieId = searchParams.get("movie");
+  const movieId = searchParams.get('movie') || searchParams.get('tv')
 
   useEffect(() => {
-    dispatch(fetchMovieDetails(movieId));
-  }, [movieId]);
+        dispatch(fetchMovieDetails(movieId));
+
+  },[movieId])
 
   const handleClose = () => {
     dispatch(cleanDetails());
-    navigate("/home");
+    navigate('/home')
   };
 
   const handleClosePlayer = () => {
     dispatch(changePlayer(false));
   };
-
-  console.log(details);
 
   return (
     <div className="relative text-white  h-screen overflow-y-scroll z-10">
@@ -96,4 +95,4 @@ function MovieDetail() {
   );
 }
 
-export default MovieDetail;
+export default TvDetails;
