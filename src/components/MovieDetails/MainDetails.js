@@ -8,7 +8,6 @@ function MainDetails({ details }) {
   }
 
   const handlePersonClick = (id) => {
-    console.log('ID: ', id)
     navigate(`/home?person=${id}`)
   }
 
@@ -20,7 +19,7 @@ function MainDetails({ details }) {
             <h3 className="font-bold mr-1">IMDB</h3>
             <h3 className="">{Math.round(details.vote_average * 10) / 10}</h3>
           </div>
-          <h3>{details.release_date.slice(0, 4)}</h3>
+          <h3>{details.release_date?.slice(0, 4)}</h3>
           <h3>{timeConvert(details.runtime)}</h3>
           <h3 className="font-extrabold">HD</h3>
         </div>

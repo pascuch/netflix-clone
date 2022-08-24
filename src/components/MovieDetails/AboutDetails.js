@@ -79,7 +79,7 @@ function AboutDetails({ details }) {
         </div>
         <p className="text-gray-500">
           Release:{" "}
-          <span className="text-white">{details.release_date.slice(0, 4)}</span>
+          <span className="text-white">{details.release_date?.slice(0, 4)}</span>
         </p>
         <p className="text-gray-500">
           Runtime:{" "}

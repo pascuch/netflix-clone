@@ -3,6 +3,7 @@ import axios from "../axios";
 
 const initialState = {
   details: null,
+  similar: null,
   showDetails: false,
   showPlayer: false,
   positionY: 0,
@@ -16,6 +17,20 @@ export const fetchMovieDetails = createAsyncThunk(
     try {
       const response = await axios.get(
         `/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&append_to_response=videos,images,credits`
+      );
+      return response.data;
+    } catch (error) {
+      return error.message;
+    }
+  }
+);
+
+export const fetchSimilarMovies = createAsyncThunk(
+  "movieDetails/fetchSimilarMovies",
+  async (id) => {
+    try {
+      const response = await axios.get(
+        `/movie/${id}/similar?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`
       );
       return response.data;
     } catch (error) {
@@ -53,6 +68,17 @@ const movieDetailsSlice = createSlice({
       .addCase(fetchMovieDetails.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
+      })
+      .addCase(fetchSimilarMovies.pending, (state, action) => {
+        state.status = "loading";
+      })
+      .addCase(fetchSimilarMovies.fulfilled, (state, action) => {
+        state.status = "succeded";
+        state.similar = action.payload
+      })
+      .addCase(fetchSimilarMovies.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
       });
   },
 });
@@ -61,6 +87,7 @@ export const { cleanDetails, changePositionY, changePlayer } =
   movieDetailsSlice.actions;
 
 export const selectMovieDetails = (state) => state.movieDetails.details;
+export const selectSimilarMovies = (state) => state.movieDetails.similar;
 export const selectShowDetails = (state) => state.movieDetails.showDetails;
 export const selectPositionY = (state) => state.movieDetails.positionY;
 export const selectShowPlayer = (state) => state.movieDetails.showPlayer;

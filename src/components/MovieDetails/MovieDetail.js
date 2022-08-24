@@ -8,12 +8,14 @@ import {
   changePlayer,
   selectShowPlayer,
   fetchMovieDetails,
+  fetchSimilarMovies,
 } from "../../redux/movieDetailsSlice";
 import ReactPlayer from "react-player";
 import AboutDetails from "./AboutDetails";
 import BannerDetails from "./BannerDetails";
 import MainDetails from "./MainDetails";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import MoreLikeThis from "./MoreLikeThis";
 
 function MovieDetail() {
   const dispatch = useDispatch();
@@ -29,6 +31,8 @@ function MovieDetail() {
 
   useEffect(() => {
     dispatch(fetchMovieDetails(movieId));
+    dispatch(fetchSimilarMovies(movieId));
+    window.scrollTo(0, 1000);
   }, [movieId]);
 
   const handleClose = () => {
@@ -39,8 +43,6 @@ function MovieDetail() {
   const handleClosePlayer = () => {
     dispatch(changePlayer(false));
   };
-
-  console.log(details);
 
   return (
     <div className="relative text-white  h-screen overflow-y-scroll z-10">
@@ -85,6 +87,7 @@ function MovieDetail() {
               <BannerDetails details={details} />
               <div className="px-12 text-sm">
                 <MainDetails details={details} />
+                <MoreLikeThis />
                 <AboutDetails details={details} />
               </div>
             </div>

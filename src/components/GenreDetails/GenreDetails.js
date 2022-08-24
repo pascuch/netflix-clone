@@ -61,10 +61,10 @@ function GenreDetails() {
               <h1 className="text-center text-4xl font-bold">
                 {genres.find((e) => e.id === Number(genreId))?.name}
               </h1>
-              <div className="grid grid-cols-4 gap-y-6 mx-10 my-12">
+              <div className="grid grid-cols-4 gap-5 mx-10 my-12">
                 {details?.map((e) => (
                   <img
-                    className={`max-h-56 object-contain mr-3 w-full duration-500 hover:scale-[1.08] hover:opacity-100 cursor-pointer`}
+                    className={`object-contain mr-3 w-full duration-500 hover:scale-[1.08] hover:opacity-100 cursor-pointer rounded-md`}
                     key={e.id}
                     src={`${baseURL}${e.poster_path}`}
                     alt={e.name}
