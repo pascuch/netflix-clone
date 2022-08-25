@@ -1,13 +1,18 @@
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { cleanDetails } from "../../redux/movieDetailsSlice";
 
 function MainDetails({ details }) {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleGenreClick = (id) => {
+    dispatch(cleanDetails());
     navigate(`/home?genre=${id}`)
   }
 
   const handlePersonClick = (id) => {
+    dispatch(cleanDetails());
     navigate(`/home?person=${id}`)
   }
 

@@ -8,7 +8,8 @@ function MoreLikeThis() {
 
   const baseURL = "https://image.tmdb.org/t/p/original";
 
-  const handleClick = (id) => {
+  const handleClick = async (id) => {
+    await navigate('/home')
     navigate(`/home?movie=${id}`);
   };
 

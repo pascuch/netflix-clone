@@ -52,7 +52,7 @@ function Banner() {
                 {movie?.title || movie?.name || movie?.original_name}
             </h1>          
             <div className="flex mt-2">
-                <button className="flex items-center font-bold rounded px-6 mr-4 bg-btn py-2 hover:text-black hover:bg-[#e6e6e6] duration-200 ">
+                <button onClick={() => handleMoreInfo(movie.id)} className="flex items-center font-bold rounded px-6 mr-4 bg-btn py-2 hover:text-black hover:bg-[#e6e6e6] duration-200 ">
                     <FaPlay className="mr-2" />
                     <h1>Play</h1>
                 </button>

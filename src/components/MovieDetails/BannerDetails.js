@@ -10,6 +10,11 @@ function BannerDetails({ details }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const handleBack = () => {
+    dispatch(cleanDetails());
+    navigate(-1);
+  };
+
   const handleClose = () => {
     dispatch(cleanDetails());
     navigate("/home");
@@ -33,7 +38,7 @@ function BannerDetails({ details }) {
     >
       <div className="flex justify-between px-4 pt-4">
         <div
-          onClick={() => navigate(-1)}
+          onClick={handleBack}
           className=" text-white bg-gray-800 hover:bg-gray-700 text-2xl p-2 rounded-full cursor-pointer"
         >
           <IoArrowBack />

@@ -44,7 +44,7 @@ const movieDetailsSlice = createSlice({
   initialState,
   reducers: {
     cleanDetails: (state, action) => {
-      state.user = null;
+      state.details = null;
       state.showDetails = false;
     },
     changePositionY: (state, action) => {
