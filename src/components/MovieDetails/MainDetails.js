@@ -17,9 +17,9 @@ function MainDetails({ details }) {
   }
 
   return (
-    <main className="flex gap-x-20 mt-2">
-      <div className="w-2/3">
-        <div className="flex mb-8 gap-x-4 ">
+    <main className="md:flex md:gap-x-20 mt-2 md:mt-12">
+      <div className="md:w-2/3">
+        <div className="flex mb-20 md:mb-8 gap-x-4 ">
           <div className="flex items-center text-yellow-200">
             <h3 className="font-bold mr-1">IMDB</h3>
             <h3 className="">{Math.round(details.vote_average * 10) / 10}</h3>
@@ -32,7 +32,7 @@ function MainDetails({ details }) {
           <p>{details.overview}</p>
         </div>
       </div>
-      <div className="w-1/3 flex flex-col gap-y-4">
+      <div className="w-full md:w-1/3 flex flex-col md:gap-y-4 mt-4 md:mt-0">
         <div>
           <p>
             <a href="." className="text-gray-500 cursor-default">

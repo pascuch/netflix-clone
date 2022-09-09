@@ -38,12 +38,12 @@ function GenreDetails() {
   };
 
   return (
-    <div className="relative text-white  h-screen overflow-y-scroll z-10">
+    <div className="relative text-white h-screen overflow-y-scroll z-10">
       {details && (
         <div className="">
           <div className="flex">
             <div onClick={handleClose} className="grow" />
-            <div className="grow-0 top-0 left-0 w-[800px] mt-8 mb-6 mx-auto bg-[#111111] rounded-xl">
+            <div className="grow-0 top-0 left-0 w-[800px] md:mt-8 mb-6 mx-auto bg-[#111111] rounded-xl">
               <div className="flex justify-between px-4 pt-4">
                 <div
                   onClick={() => navigate(-1)}
@@ -58,10 +58,10 @@ function GenreDetails() {
                   <IoMdClose />
                 </div>
               </div>
-              <h1 className="text-center text-4xl font-bold">
+              <h1 className="text-center text-2xl md:text-4xl font-bold">
                 {details.name}
               </h1>
-              <div className="grid grid-cols-4 gap-5 mx-10 my-12">
+              <div className="grid grid-cols-3 md:grid-cols-4 gap-3 md:gap-5 mx-2 md:mx-10 mt-6 md:my-12">
                 {movieCast?.map((e) => (
                   <img
                     className={`object-contain mr-3 w-full duration-500 hover:scale-[1.08] hover:opacity-100 cursor-pointer rounded-md`}

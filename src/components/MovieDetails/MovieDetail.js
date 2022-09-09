@@ -50,7 +50,7 @@ function MovieDetail() {
         <div className="">
           {showPlayer && (
             <div className="fixed w-screen h-screen z-50 bg-black/70">
-              <div className="absolute w-4/6 h-4/6 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 ">
+              <div className="absolute w-full h-2/6 md:w-4/6 md:h-4/6 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 ">
                 <ReactPlayer
                   style={{ borderRadius: "20px" }}
                   controls
@@ -82,16 +82,16 @@ function MovieDetail() {
             </div>
           )}
           <div className="flex">
-            <div onClick={handleClose} className="grow" />
-            <div className="grow-0 top-0 left-0 w-[800px] mt-8 mb-6 mx-auto bg-[#111111] rounded-xl">
+            <div onClick={handleClose} className="hidden md:inline-block grow" />
+            <div className="grow-0 top-0 left-0 w-screen md:w-[800px] md:mt-8 mb-6 bg-[#111111] rounded-xl overflow-y-auto overflow-x-hidden">
               <BannerDetails details={details} />
-              <div className="px-12 text-sm">
+              <div className="px-4 md:px-12 text-sm">
                 <MainDetails details={details} />
                 <MoreLikeThis />
                 <AboutDetails details={details} />
               </div>
             </div>
-            <div onClick={handleClose} className="grow" />
+            <div onClick={handleClose} className="hidden md:inline-block grow" />
           </div>
         </div>
       )}

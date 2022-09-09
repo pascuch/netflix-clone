@@ -16,7 +16,7 @@ function MoreLikeThis() {
   return (
     <div className="mt-10">
       <h1 className="text-3xl font-bold">More Like This</h1>
-      <div className="grid grid-cols-4 gap-5 mb-12 mt-8">
+      <div className="grid grid-cols-3 md:grid-cols-4 gap-3 md:gap-5 mb-12 mt-8">
         {similar?.map((e, i) => {
           if (i < 12)
             return (
